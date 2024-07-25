@@ -679,7 +679,7 @@ The configuration examples provides are not meant to be copy and pasted into you
 
 ### MikroTik
 
-[Contribution guidelines for this project](./mikrotik.md)
+[Contribution guidelines for this project](./Mikrotik.md)
 
  Your configuration may differ slightly, particularly the peering
  attributes that uniquely identify your end of the peering session.  You
