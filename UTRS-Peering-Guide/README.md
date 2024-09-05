@@ -528,8 +528,7 @@ The configuration examples provides are not meant to be copy and pasted into you
 	  neighbor <UTRS_1_IP_ADDRESS> route-map BGP-AS64496-V4-OUT-CYMRUUTRS out
 	 exit-address-family
 	!
-	ip community-list standard UTRS permit 64496:0
-	ip community-list standard UTRS- permit :0
+	ip community-list standard UTRS permit <your-asn>:0
 	!
     ! match IPv4 prefixes up to a /25
     ip prefix-list 25-only permit 0.0.0.0/0 ge 25
