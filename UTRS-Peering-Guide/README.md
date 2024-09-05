@@ -405,7 +405,7 @@ The configuration examples provides are not meant to be copy and pasted into you
     !
     !
     ! match IPv6 prefixes up to a /49
-    ip prefix-list 49-only perming 0:0:0:0::0/0 ge 49
+    ip prefix-list 49-only permit 0:0:0:0::0/0 ge 49
     !
 
     ! define RTBH community to tag your UTRS announcements, optional
@@ -535,7 +535,7 @@ The configuration examples provides are not meant to be copy and pasted into you
     !
 
     ! match IPv6 prefixes up to a /49
-    ip prefix-list 49-only perming 0:0:0:0::0/0 ge 49
+    ip prefix-list 49-only permit 0:0:0:0::0/0 ge 49
 	
 	ip route 192.0.2.1 255.255.255.255 null0
 	!
