@@ -90,7 +90,7 @@ Flow Specification Rules (<i>aka flowspec</i>) that adhere to the following guid
 
 * <u>Must</u> contain drop action (traffic rate-limit 0).
 
-  * See [ITEF RFC 8955](https://datatracker.ietf.org/doc/html/rfc8955#section-7) for more details.
+  * See [IETF RFC 8955](https://datatracker.ietf.org/doc/html/rfc8955#section-7) for more details.
 
 
 
