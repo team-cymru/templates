@@ -685,7 +685,8 @@ The configuration examples provides are not meant to be copy and pasted into you
  may also wish to apply a strict set of import and export policy
  directives.  Consider this generic template as a guide, not a
  specification.
- 
+
+ #### Router OS 6
  
 	# BGP instance setup
 	/routing bgp instance set default as=<YOUR_ASN> router-id=<WAN_IP_ADDRESS>
@@ -701,6 +702,26 @@ The configuration examples provides are not meant to be copy and pasted into you
  
  
 
+#### Router OS 7
+
+	```
+	/routing/filters
+	add chain=FILTER_UTRS_IN disabled=no rule="if (dst-len in 0-32 && bgp-communities any 64496:0 ) {set blackhole yes}"
+	add chain=FILTER_UTRS_IN disabled=no rule=reject
+	add chain=FILTER_UTRS_OUT disabled=no rule=reject
+	
+	/routing/bgp/templates
+	add address-families=ip,ipv6 as=<YOUR_ASN> disabled=no input.filter=FILTER_UTRS_IN \
+	    multihop=yes name=AS64496-CYMRU-UTRS output.filter-chain=FILTER_UTRS_OUT
+	
+	/routing/bgp/connections
+	add disabled=no  local.address=<WAN_IP_ADDRESS> name=\
+	    EXTERNAL-AS64496-CYMRU-UTRS01 output.filter-chain=FILTER_UTRS_OUT \
+	    remote.address=216.31.8.100/32 .as=64496  routing-table=main templates=AS64496-CYMRU-UTRS
+	add disabled=no  local.address=<WAN_IP_ADDRESS> name=\
+	    EXTERNAL-AS64496-CYMRU-UTRS02 output.filter-chain=FILTER_UTRS_OUT \
+	    remote.address=216.31.9.100/32 .as=64496  routing-table=main templates=AS64496-CYMRU-UTRS
+	```
 
 
 ### Bird2.0 
