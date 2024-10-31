@@ -711,14 +711,14 @@ The configuration examples provides are not meant to be copy and pasted into you
 	add chain=FILTER_UTRS_OUT disabled=no rule=reject
 	
 	/routing/bgp/templates
-	add address-families=ip,ipv6 as=<YOUR ASN> disabled=no input.filter=FILTER_UTRS_IN \
+	add address-families=ip,ipv6 as=<YOUR_ASN> disabled=no input.filter=FILTER_UTRS_IN \
 	    multihop=yes name=AS64496-CYMRU-UTRS output.filter-chain=FILTER_UTRS_OUT
 	
 	/routing/bgp/connections
-	add disabled=no  local.address=<YOUR SOURCE ADDRESS> name=\
+	add disabled=no  local.address=<WAN_IP_ADDRESS> name=\
 	    EXTERNAL-AS64496-CYMRU-UTRS01 output.filter-chain=FILTER_UTRS_OUT \
 	    remote.address=216.31.8.100/32 .as=64496  routing-table=main templates=AS64496-CYMRU-UTRS
-	add disabled=no  local.address=<YOUR SOURCE ADDRESS> name=\
+	add disabled=no  local.address=<WAN_IP_ADDRESS> name=\
 	    EXTERNAL-AS64496-CYMRU-UTRS02 output.filter-chain=FILTER_UTRS_OUT \
 	    remote.address=216.31.9.100/32 .as=64496  routing-table=main templates=AS64496-CYMRU-UTRS
 	```
